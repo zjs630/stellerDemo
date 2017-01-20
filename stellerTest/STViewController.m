@@ -9,23 +9,21 @@
 #import "STViewController.h"
 #import "STCusomImageView.h"
 
-enum action {
-    rightAction = 1,    // 向前滑动
-    leftAction,         // 向后滑动
-    rightCancelAction,  //向右滑动取消
-//    leftCancelAction,   //向左滑动取消
-    cancellAction,      // 取消滑动
-    others
-} panAction;
+typedef NS_ENUM(NSInteger, PanAction){
+    RightAction = 1,    // 向前滑动
+    LeftAction,         // 向后滑动
+    RightCancelAction,  //向右滑动取消
+    //LeftCancelAction,   //向左滑动取消
+    CancellAction,      // 取消滑动
+    Others
+};
 
-#define KEY_WINDOW  [[UIApplication sharedApplication]keyWindow]
-#define TOP_VIEW    [[UIApplication sharedApplication]keyWindow].rootViewController.view
+#define KEY_WINDOW  [[UIApplication sharedApplication] keyWindow]
+#define TOP_VIEW    [[UIApplication sharedApplication] keyWindow].rootViewController.view
 
 @interface STViewController () <UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 
-@property (nonatomic, strong) STCusomImageView  *view1;
-@property (nonatomic, strong) STCusomImageView  *view2;
-@property (nonatomic, strong) STCusomImageView  *view3;
+@property (nonatomic,assign) PanAction panAction;
 
 @end
 
@@ -36,36 +34,48 @@ enum action {
     if (!_viewMutableArray) {
         _viewMutableArray = [[NSMutableArray alloc] init];
     }
-
     return _viewMutableArray;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.imageArray = @[@"1.jpg", @"2.jpg", @"3.jpg", @"4.jpg", @"5.jpg", @"6.jpg", @"7.jpg", @"8.jpg"];
+    self.imageArray = @[@"1.jpg", @"2.jpg", @"3.jpg", @"4.jpg", @"5.jpg", @"6.jpg"];//初始化数据
     [self createViewForReuse];
-
 }
 
+/**
+ 初期要创建两个需要重用的View
+ */
 - (void)createViewForReuse
 {
     if ([self.viewMutableArray count] > 0) {
         return;
     }
 
-    int count = (int)[self.imageArray count];
+    NSUInteger count = self.imageArray.count;
 
     if (count == 0) {
         return;
     }
-
     if (count == 1) {
         [self createCusomImageViewToArray:0];
     } else if (count > 1) {
         [self createCusomImageViewToArray:0];
         [self createCusomImageViewToArray:1];
     }
+}
+
+- (void)addTransformToView:(UIView *)v withHudu:(CGFloat)hudu isTouShi:(BOOL)isYes
+{
+    v.layer.anchorPoint = CGPointMake(0, 0.5);
+    CATransform3D transform2 = CATransform3DIdentity;
+    transform2.m41 = -self.view.bounds.size.width/2;
+    if (isYes) {
+        transform2.m34 = -1 / 2000.0; // 透视效果
+    }
+    transform2 = CATransform3DRotate(transform2, hudu, 0, 1, 0);
+    [v.layer setTransform:transform2];
 }
 
 #pragma mark - 数据操作
@@ -77,7 +87,7 @@ enum action {
     if (self.view.frame.size.height>480) {
         y = 44;
     }
-    
+
     STCusomImageView *vi = [[STCusomImageView alloc] initWithFrame:CGRectMake(0, y, self.view.frame.size.width, self.view.frame.size.height)];
 
     [vi addImageForView:[UIImage imageNamed:self.imageArray[i]] withTag:i + 1];
@@ -96,14 +106,16 @@ enum action {
 - (void)addNewDataToViewMutableArray:(int)vIndex
 {
     if ([self.viewMutableArray count] == 2) {
-        [self createCusomImageViewToArray:2];
+        if (self.imageArray.count>2) {
+            [self createCusomImageViewToArray:2];
+        }
         return;
     }
 
     // 到这里至少有三个盒子了。
-    int                 dataCount = (int)[self.imageArray count];
-    STCusomImageView    *vi = (STCusomImageView *)[self.viewMutableArray objectAtIndex:0];
-    int                 imgTag = vi.imgTag;
+    int dataCount = (int)[self.imageArray count];
+    STCusomImageView *vi = (STCusomImageView *)[self.viewMutableArray objectAtIndex:0];
+    int imgTag = vi.imgTag;
 
     if ((vIndex == 1) && (imgTag < dataCount - 2)) { // 如果后面还有数据
         // 移动的是第二个盒子，展示出第三个盒子。之后将第一个盒子移动到第三个盒子后面
@@ -118,11 +130,7 @@ enum action {
         //隐藏vi的动画，暂时不知道更好的复位方法。
         [UIView animateWithDuration:0.1 animations:^{
             vi.hidden = YES;
-            vi.layer.anchorPoint = CGPointMake(0, 0.5);
-            CATransform3D transform2 = CATransform3DIdentity;
-            transform2.m41 = -160;
-            transform2 = CATransform3DRotate(transform2, 0, 0, 1, 0);
-            [vi.layer setTransform:transform2];
+            [self addTransformToView:vi withHudu:0 isTouShi:NO];
         } completion:^(BOOL finished) {
             vi.hidden = NO;
         }];
@@ -154,16 +162,12 @@ enum action {
     }
 }
 
-//回复到取消右移前的状态
+//恢复到取消右移前的状态
 - (void)restoreRightMove:(STCusomImageView *)vi
 {
     [UIView animateWithDuration:0.1 animations:^{
         vi.hidden = YES;
-        vi.layer.anchorPoint = CGPointMake(0, 0.5);
-        CATransform3D transform2 = CATransform3DIdentity;
-        transform2.m41 = -160;
-        transform2 = CATransform3DRotate(transform2, M_PI_2, 0, 1, 0);
-        [vi.layer setTransform:transform2];
+        [self addTransformToView:vi withHudu:M_PI_2 isTouShi:NO];
     } completion:^(BOOL finished) {
         vi.hidden = NO;
     }];
@@ -172,71 +176,82 @@ enum action {
 #pragma mark -
 
 // set lastScreenShotView 's position and alpha when paning
-- (void)moveViewWithX:(float)x withView:(UIView *)v
+- (void)moveViewWithX:(float)x withView:(UIView *)touchView
 {
     UIView  *animationView = nil;
-    int     vIndex = (int)[self.viewMutableArray indexOfObject:v];
-
-    x = x > 320 ? 320 : x;
+    int     vIndex = (int)[self.viewMutableArray indexOfObject:touchView];
+    CGFloat w = self.view.bounds.size.width;
+    x = x > w ? w : x;
 
     if (vIndex == 0) {
-        if (panAction == rightAction) { // 向前翻页
+        if (_panAction == RightAction) { // 向前翻页
             return;
         }
 
-        if (panAction == leftAction) { // 向后翻页
-            animationView = v;
-            x = -320;
+        if (_panAction == LeftAction) { // 向后翻页
+            if (self.imageArray.count == 1) {//只有一个页面不添加数据
+                return;
+            }
+            animationView = touchView;
+            x = -w;
             [self addNewDataToViewMutableArray:vIndex];
         } else {
             if (x <= 0) {
-                animationView = v;
+                if (self.imageArray.count > 1) {//只有一个页面不翻页
+                    animationView = touchView;
+                }
             } else {return; }
         }
     } else if (vIndex == 1) {
         if (x == 0) {
-            if (panAction == cancellAction) { // 取消操作
-                animationView = v;
+            if (_panAction == CancellAction) { // 取消操作
+                animationView = touchView;
             }
-            else if (panAction == rightCancelAction){
+            else if (_panAction == RightCancelAction){
                 [self restoreRightMove:(STCusomImageView *)[self.viewMutableArray objectAtIndex:vIndex - 1]];
                 return;
             }
-        } else if (x == 320) {
-            if (panAction == leftAction) { // 向后翻页
-                animationView = v;
-                x = -320;
+        } else if (x == w) {
+            if (_panAction == LeftAction) { // 向后翻页
+                if (self.imageArray.count == 2) {
+                    return;
+                }
+                animationView = touchView;
+                x = -w;
                 [self addNewDataToViewMutableArray:vIndex];
-            } else if (panAction == rightAction) { // 向前翻页
+            } else if (_panAction == RightAction) { // 向前翻页
                 animationView = (UIView *)[self.viewMutableArray objectAtIndex:vIndex - 1];
                 x = 0;
                 [self forwardReuseData:vIndex];
             }
         } else if (x > 0) {
             animationView = (UIView *)[self.viewMutableArray objectAtIndex:vIndex - 1];
-            x = x - 320;
+            x = x - w;
         } else if (x < 0) {
-            animationView = v;
+            NSLog(@"xxddd");
+            if (self.imageArray.count > 2) {
+                animationView = touchView;
+            }
         }
     } else if (vIndex == 2) {
-        if (panAction == leftAction) {
+        if (_panAction == LeftAction) {
             return;
         }
 
-        if (panAction == rightAction) { // 向前翻页
+        if (_panAction == RightAction) { // 向前翻页
             animationView = (UIView *)[self.viewMutableArray objectAtIndex:vIndex - 1];
             x = 0;
             [self forwardReuseData:vIndex];
         }
-        else if (panAction == rightCancelAction){
+        else if (_panAction == RightCancelAction){
             [self restoreRightMove:(STCusomImageView *)[self.viewMutableArray objectAtIndex:vIndex - 1]];
             return;
         }
         else {
             if (x == 0) {
-                animationView = v;
+                animationView = touchView;
             } else if (x > 0) {
-                x = x - 320;
+                x = x - w;
                 animationView = (UIView *)[self.viewMutableArray objectAtIndex:vIndex - 1];
             } else {
                 NSLog(@"向左滑动！不操作");
@@ -245,18 +260,11 @@ enum action {
         }
     }
 
-    float hudu = x / 320 * M_PI_2;
+    float hudu = x / w * M_PI_2;
 
     NSLog(@"Move to:%f|||| %f", x, hudu);
 
-    animationView.layer.anchorPoint = CGPointMake(0, 0.5);
-
-    CATransform3D transform2 = CATransform3DIdentity;
-    transform2.m41 = -160;
-    transform2.m34 = -1 / 2000.0; // 透视效果
-    transform2 = CATransform3DRotate(transform2, hudu, 0, 1, 0);
-
-    [animationView.layer setTransform:transform2];
+    [self addTransformToView:animationView withHudu:hudu isTouShi:YES];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
@@ -270,7 +278,7 @@ enum action {
 - (void)paningGestureReceive:(UIPanGestureRecognizer *)recoginzer
 {
     // If the viewControllers has only one vc or disable the interaction, then return.
-    panAction = others;
+    _panAction = Others;
     UIView *touchView = recoginzer.view;
     // we get the touch position by the window's coordinate
     CGPoint touchPoint = [recoginzer locationInView:KEY_WINDOW];
@@ -285,23 +293,23 @@ enum action {
         float yidonglength = touchPoint.x - startTouch.x;
         NSLog(@"移动距离:%f|||| ", yidonglength);
 
-        if (abs(yidonglength) > 50) {
+        if (fabsf(yidonglength) > 50) {
             if (yidonglength < 0) { // 向后翻页
-                panAction = leftAction;//NSLog(@"向后翻页");
+                _panAction = LeftAction;//NSLog(@"向后翻页");
             } else {
-                panAction = rightAction;//NSLog(@"向前翻页");
+                _panAction = RightAction;//NSLog(@"向前翻页");
             }
 
             [UIView animateWithDuration:0.3 animations:^{
-                [self moveViewWithX:320 withView:touchView];
+                [self moveViewWithX:self.view.bounds.size.width withView:touchView];
             } completion:^(BOOL finished) {
                 _isMoving = NO;
             }];
         } else {
             if (yidonglength < 0) { // 向后翻页
-                panAction = cancellAction;//NSLog(@"向左滑动翻页取消");
+                _panAction = CancellAction;//NSLog(@"向左滑动翻页取消");
             } else {
-                panAction = rightCancelAction;//NSLog(@"向右滑动翻页取消");
+                _panAction = RightCancelAction;//NSLog(@"向右滑动翻页取消");
             }
             [UIView animateWithDuration:0.3 animations:^{
                 //NSLog(@"取消翻页");
@@ -315,7 +323,7 @@ enum action {
 
         // cancal panning, alway move to left side automatically
     } else if (recoginzer.state == UIGestureRecognizerStateCancelled) {
-        panAction = cancellAction;
+        _panAction = CancellAction;
         [UIView animateWithDuration:0.3 animations:^{
             [self moveViewWithX:0 withView:touchView];
         } completion:^(BOOL finished) {

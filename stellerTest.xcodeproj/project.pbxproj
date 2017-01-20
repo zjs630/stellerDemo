@@ -24,12 +24,10 @@
 		620040C619615D7000C6F4F5 /* STCusomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 620040C519615D7000C6F4F5 /* STCusomImageView.m */; };
 		620040CB19616B3E00C6F4F5 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 620040C719616B3E00C6F4F5 /* 1.jpg */; };
 		620040CC19616B3E00C6F4F5 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 620040C819616B3E00C6F4F5 /* 2.jpg */; };
-		620040CD19616B3E00C6F4F5 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 620040C919616B3E00C6F4F5 /* 3.jpg */; };
-		620040CE19616B3E00C6F4F5 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 620040CA19616B3E00C6F4F5 /* 4.jpg */; };
+		620040CE19616B3E00C6F4F5 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 620040CA19616B3E00C6F4F5 /* 3.jpg */; };
 		62E7363D1966847C00F55EB0 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 62E736391966847C00F55EB0 /* 5.jpg */; };
 		62E7363E1966847C00F55EB0 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 62E7363A1966847C00F55EB0 /* 6.jpg */; };
-		62E7363F1966847C00F55EB0 /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 62E7363B1966847C00F55EB0 /* 7.jpg */; };
-		62E736401966847C00F55EB0 /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 62E7363C1966847C00F55EB0 /* 8.jpg */; };
+		62E736401966847C00F55EB0 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 62E7363C1966847C00F55EB0 /* 4.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +53,7 @@
 		6200409F1961512300C6F4F5 /* STAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STAppDelegate.m; sourceTree = "<group>"; };
 		620040A21961512300C6F4F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		620040A41961512300C6F4F5 /* STViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STViewController.h; sourceTree = "<group>"; };
-		620040A51961512300C6F4F5 /* STViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STViewController.m; sourceTree = "<group>"; };
+		620040A51961512300C6F4F5 /* STViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = STViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		620040A71961512300C6F4F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		620040AD1961512300C6F4F5 /* stellerTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stellerTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		620040AE1961512300C6F4F5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -66,12 +64,10 @@
 		620040C519615D7000C6F4F5 /* STCusomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STCusomImageView.m; path = Steller/STCusomImageView.m; sourceTree = "<group>"; };
 		620040C719616B3E00C6F4F5 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		620040C819616B3E00C6F4F5 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
-		620040C919616B3E00C6F4F5 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
-		620040CA19616B3E00C6F4F5 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		620040CA19616B3E00C6F4F5 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		62E736391966847C00F55EB0 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
 		62E7363A1966847C00F55EB0 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
-		62E7363B1966847C00F55EB0 /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
-		62E7363C1966847C00F55EB0 /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
+		62E7363C1966847C00F55EB0 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +99,10 @@
 			children = (
 				620040C719616B3E00C6F4F5 /* 1.jpg */,
 				620040C819616B3E00C6F4F5 /* 2.jpg */,
-				620040C919616B3E00C6F4F5 /* 3.jpg */,
-				620040CA19616B3E00C6F4F5 /* 4.jpg */,
+				620040CA19616B3E00C6F4F5 /* 3.jpg */,
+				62E7363C1966847C00F55EB0 /* 4.jpg */,
 				62E736391966847C00F55EB0 /* 5.jpg */,
 				62E7363A1966847C00F55EB0 /* 6.jpg */,
-				62E7363B1966847C00F55EB0 /* 7.jpg */,
-				62E7363C1966847C00F55EB0 /* 8.jpg */,
 				620040951961512300C6F4F5 /* stellerTest */,
 				620040B41961512400C6F4F5 /* stellerTestTests */,
 				6200408E1961512300C6F4F5 /* Frameworks */,
@@ -234,7 +228,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ST;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "天天飞度";
 				TargetAttributes = {
 					620040AC1961512300C6F4F5 = {
@@ -266,14 +260,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62E7363F1966847C00F55EB0 /* 7.jpg in Resources */,
 				620040A81961512300C6F4F5 /* Images.xcassets in Resources */,
-				620040CE19616B3E00C6F4F5 /* 4.jpg in Resources */,
+				620040CE19616B3E00C6F4F5 /* 3.jpg in Resources */,
 				620040CB19616B3E00C6F4F5 /* 1.jpg in Resources */,
-				62E736401966847C00F55EB0 /* 8.jpg in Resources */,
+				62E736401966847C00F55EB0 /* 4.jpg in Resources */,
 				62E7363E1966847C00F55EB0 /* 6.jpg in Resources */,
 				620040CC19616B3E00C6F4F5 /* 2.jpg in Resources */,
-				620040CD19616B3E00C6F4F5 /* 3.jpg in Resources */,
 				6200409A1961512300C6F4F5 /* InfoPlist.strings in Resources */,
 				62E7363D1966847C00F55EB0 /* 5.jpg in Resources */,
 				620040A31961512300C6F4F5 /* Main.storyboard in Resources */,
@@ -361,13 +353,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -380,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -399,20 +397,25 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -422,10 +425,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "stellerTest/stellerTest-Prefix.pch";
 				INFOPLIST_FILE = "stellerTest/stellerTest-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tt139.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -435,10 +438,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "stellerTest/stellerTest-Prefix.pch";
 				INFOPLIST_FILE = "stellerTest/stellerTest-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tt139.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -460,6 +463,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "stellerTestTests/stellerTestTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tt139.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -478,6 +482,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "stellerTest/stellerTest-Prefix.pch";
 				INFOPLIST_FILE = "stellerTestTests/stellerTestTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tt139.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

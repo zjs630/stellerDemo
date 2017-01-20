@@ -10,15 +10,6 @@
 
 @implementation STCusomImageView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 - (UIImageView *)myImageView
 {
     if (_myImageView==nil) {
@@ -32,10 +23,10 @@
 {
     if (_wordLabel == nil) {
         _wordLabel = [[UILabel alloc] init];
+        _wordLabel.textAlignment = NSTextAlignmentCenter;
+        _wordLabel.textColor = [UIColor redColor];
+        _wordLabel.font = [UIFont systemFontOfSize:24];
         [self addSubview:_wordLabel];
-        
-        
-        
     }
     return _wordLabel;
 }
@@ -43,7 +34,8 @@
 - (void)addImageForView:(UIImage *)img
 {
     CGSize size = img.size;
-    self.myImageView.frame = CGRectMake(0, 0, size.width/2, size.height/2);
+    float height = size.height*self.bounds.size.width/size.width;
+    self.myImageView.frame = CGRectMake(0, 0, self.bounds.size.width, height);
     self.myImageView.image = img;
     
 }
@@ -56,17 +48,8 @@
 
 - (void)addWords:(NSString *)word
 {
-    self.wordLabel.frame = CGRectMake(0, 20, 320, 30);
+    self.wordLabel.frame = CGRectMake(0, self.bounds.size.height - 160, self.bounds.size.width, 30);
     _wordLabel.text = word;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

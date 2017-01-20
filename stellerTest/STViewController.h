@@ -14,7 +14,7 @@
 }
 
 @property (nonatomic,assign) BOOL isMoving;
-@property (nonatomic,strong) NSMutableArray *viewMutableArray;
-@property (nonatomic,strong) NSArray *imageArray;
+@property (nonatomic,strong) NSMutableArray *viewMutableArray; //存放翻页的视图
+@property (nonatomic,strong) NSArray *imageArray; //数据（图片名称）
 
 @end
