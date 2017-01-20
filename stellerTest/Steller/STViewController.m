@@ -91,7 +91,7 @@ typedef NS_ENUM(NSInteger, PanAction){
     STCusomImageView *vi = [[STCusomImageView alloc] initWithFrame:CGRectMake(0, y, self.view.frame.size.width, self.view.frame.size.height)];
 
     [vi addImageForView:[UIImage imageNamed:self.imageArray[i]] withTag:i + 1];
-    [vi addWords:[NSString stringWithFormat:@"这是第%d张图片", i + 1]];
+    [vi addWords:[NSString stringWithFormat:@"这是第%d个视图", i + 1]];
     [self.view insertSubview:vi atIndex:0];
 
     UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self
@@ -318,9 +318,7 @@ typedef NS_ENUM(NSInteger, PanAction){
                 _isMoving = NO;
             }];
         }
-
         return;
-
         // cancal panning, alway move to left side automatically
     } else if (recoginzer.state == UIGestureRecognizerStateCancelled) {
         _panAction = CancellAction;

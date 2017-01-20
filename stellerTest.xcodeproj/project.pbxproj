@@ -14,7 +14,6 @@
 		6200409C1961512300C6F4F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6200409B1961512300C6F4F5 /* main.m */; };
 		620040A01961512300C6F4F5 /* STAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6200409F1961512300C6F4F5 /* STAppDelegate.m */; };
 		620040A31961512300C6F4F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620040A11961512300C6F4F5 /* Main.storyboard */; };
-		620040A61961512300C6F4F5 /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 620040A51961512300C6F4F5 /* STViewController.m */; };
 		620040A81961512300C6F4F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 620040A71961512300C6F4F5 /* Images.xcassets */; };
 		620040AF1961512300C6F4F5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620040AE1961512300C6F4F5 /* XCTest.framework */; };
 		620040B01961512400C6F4F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6200408F1961512300C6F4F5 /* Foundation.framework */; };
@@ -28,6 +27,7 @@
 		62E7363D1966847C00F55EB0 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 62E736391966847C00F55EB0 /* 5.jpg */; };
 		62E7363E1966847C00F55EB0 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 62E7363A1966847C00F55EB0 /* 6.jpg */; };
 		62E736401966847C00F55EB0 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 62E7363C1966847C00F55EB0 /* 4.jpg */; };
+		E523DBB91E328377002641F1 /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E523DBB81E328377002641F1 /* STViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +52,6 @@
 		6200409E1961512300C6F4F5 /* STAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STAppDelegate.h; sourceTree = "<group>"; };
 		6200409F1961512300C6F4F5 /* STAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STAppDelegate.m; sourceTree = "<group>"; };
 		620040A21961512300C6F4F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		620040A41961512300C6F4F5 /* STViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STViewController.h; sourceTree = "<group>"; };
-		620040A51961512300C6F4F5 /* STViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = STViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		620040A71961512300C6F4F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		620040AD1961512300C6F4F5 /* stellerTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stellerTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		620040AE1961512300C6F4F5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -62,12 +60,14 @@
 		620040BA1961512400C6F4F5 /* stellerTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = stellerTestTests.m; sourceTree = "<group>"; };
 		620040C419615D7000C6F4F5 /* STCusomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STCusomImageView.h; path = Steller/STCusomImageView.h; sourceTree = "<group>"; };
 		620040C519615D7000C6F4F5 /* STCusomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STCusomImageView.m; path = Steller/STCusomImageView.m; sourceTree = "<group>"; };
-		620040C719616B3E00C6F4F5 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		620040C819616B3E00C6F4F5 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
-		620040CA19616B3E00C6F4F5 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
-		62E736391966847C00F55EB0 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
-		62E7363A1966847C00F55EB0 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
-		62E7363C1966847C00F55EB0 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		620040C719616B3E00C6F4F5 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = ../1.jpg; sourceTree = "<group>"; };
+		620040C819616B3E00C6F4F5 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = ../2.jpg; sourceTree = "<group>"; };
+		620040CA19616B3E00C6F4F5 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.jpg; path = ../3.jpg; sourceTree = "<group>"; };
+		62E736391966847C00F55EB0 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 5.jpg; path = ../5.jpg; sourceTree = "<group>"; };
+		62E7363A1966847C00F55EB0 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 6.jpg; path = ../6.jpg; sourceTree = "<group>"; };
+		62E7363C1966847C00F55EB0 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4.jpg; path = ../4.jpg; sourceTree = "<group>"; };
+		E523DBB71E328377002641F1 /* STViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STViewController.h; path = Steller/STViewController.h; sourceTree = "<group>"; };
+		E523DBB81E328377002641F1 /* STViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STViewController.m; path = Steller/STViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +97,6 @@
 		620040831961512300C6F4F5 = {
 			isa = PBXGroup;
 			children = (
-				620040C719616B3E00C6F4F5 /* 1.jpg */,
-				620040C819616B3E00C6F4F5 /* 2.jpg */,
-				620040CA19616B3E00C6F4F5 /* 3.jpg */,
-				62E7363C1966847C00F55EB0 /* 4.jpg */,
-				62E736391966847C00F55EB0 /* 5.jpg */,
-				62E7363A1966847C00F55EB0 /* 6.jpg */,
 				620040951961512300C6F4F5 /* stellerTest */,
 				620040B41961512400C6F4F5 /* stellerTestTests */,
 				6200408E1961512300C6F4F5 /* Frameworks */,
@@ -133,10 +127,11 @@
 		620040951961512300C6F4F5 /* stellerTest */ = {
 			isa = PBXGroup;
 			children = (
-				62E736431966B3DE00F55EB0 /* viewPage */,
+				62E736431966B3DE00F55EB0 /* Steller  */,
 				6200409E1961512300C6F4F5 /* STAppDelegate.h */,
 				6200409F1961512300C6F4F5 /* STAppDelegate.m */,
 				620040A11961512300C6F4F5 /* Main.storyboard */,
+				E523DBBA1E328402002641F1 /* Resource */,
 				620040A71961512300C6F4F5 /* Images.xcassets */,
 				620040961961512300C6F4F5 /* Supporting Files */,
 			);
@@ -172,15 +167,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		62E736431966B3DE00F55EB0 /* viewPage */ = {
+		62E736431966B3DE00F55EB0 /* Steller  */ = {
 			isa = PBXGroup;
 			children = (
 				620040C419615D7000C6F4F5 /* STCusomImageView.h */,
 				620040C519615D7000C6F4F5 /* STCusomImageView.m */,
-				620040A41961512300C6F4F5 /* STViewController.h */,
-				620040A51961512300C6F4F5 /* STViewController.m */,
+				E523DBB71E328377002641F1 /* STViewController.h */,
+				E523DBB81E328377002641F1 /* STViewController.m */,
 			);
-			name = viewPage;
+			name = "Steller ";
+			sourceTree = "<group>";
+		};
+		E523DBBA1E328402002641F1 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				620040C719616B3E00C6F4F5 /* 1.jpg */,
+				620040C819616B3E00C6F4F5 /* 2.jpg */,
+				620040CA19616B3E00C6F4F5 /* 3.jpg */,
+				62E7363C1966847C00F55EB0 /* 4.jpg */,
+				62E736391966847C00F55EB0 /* 5.jpg */,
+				62E7363A1966847C00F55EB0 /* 6.jpg */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,8 +295,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				620040A61961512300C6F4F5 /* STViewController.m in Sources */,
 				620040C619615D7000C6F4F5 /* STCusomImageView.m in Sources */,
+				E523DBB91E328377002641F1 /* STViewController.m in Sources */,
 				6200409C1961512300C6F4F5 /* main.m in Sources */,
 				620040A01961512300C6F4F5 /* STAppDelegate.m in Sources */,
 			);
